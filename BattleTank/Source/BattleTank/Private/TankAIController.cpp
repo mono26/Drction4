@@ -19,8 +19,12 @@ void ATankAIController::Tick(float DeltaTime)
 
 	if (PlayerTank)
 	{
+		//Move towards the player
+		MoveToActor(PlayerTank, AcceptanceRadius); // TODO checkif units in centimeters or meters
+
+		// Aim towards the player
 		ControlledTank->AimAt(PlayerTank->GetActorLocation());
 
-		ControlledTank->Fire();
+		ControlledTank->Fire(); // TODO limit firing rate
 	}
 }
