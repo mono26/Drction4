@@ -26,15 +26,19 @@ private:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
+	UFUNCTION()
+	void OnHit(UPrimitiveComponent* HitComponent, AActor* OtherActor, UPrimitiveComponent* OtherComponent, FVector NormalImpulse, const FHitResult& Hit);
+
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UStaticMeshComponent * CollisionMesh = nullptr;
 	
 	UPROPERTY(VisibleAnywhere, Category = "Components")
 	UParticleSystemComponent * LaunchBlast = nullptr;
 
-public:	
-	// Called every frame
-	virtual void Tick(float DeltaTime) override;
+	UPROPERTY(VisibleAnywhere, Category = "Components")
+	UParticleSystemComponent * ImpactBlast = nullptr;
+
+public:
 
 	void Launch(float speed);
 };
