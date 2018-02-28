@@ -21,13 +21,16 @@ protected:
 	UFUNCTION(BlueprintImplementableEvent, Category = "Setup")
 	void FoundAimingComponent(UTankAimingComponent* AimCompRef);
 
-public:
+	UFUNCTION()
+	void OnPossedTankDeath();
+
+private:
 
 	virtual void BeginPlay() override;
 
 	virtual void Tick(float DeltaTime) override;
 
-private:
+	void SetPawn(APawn * InPawn);
 
 	void AimTowardsCrosshair();
 

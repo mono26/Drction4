@@ -47,5 +47,6 @@ void ATankAIController::Tick(float DeltaTime)
 
 void ATankAIController::OnPossedTankDeath()
 {
-	UE_LOG(LogTemp, Warning, TEXT("Received!"))
+	if (!ensure(GetPawn())) { return; } // TODO remove if ok
+	GetPawn()->DetachFromControllerPendingDestroy();
 }
